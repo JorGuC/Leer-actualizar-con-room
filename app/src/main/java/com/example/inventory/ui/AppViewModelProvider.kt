@@ -36,7 +36,8 @@ object AppViewModelProvider {
         // Initializer for ItemEditViewModel
         initializer {
             ItemEditViewModel(
-                this.createSavedStateHandle()
+                this.createSavedStateHandle(),
+                    inventoryApplication().container.itemsRepository
             )
         }
         // Initializer for ItemEntryViewModel
@@ -55,6 +56,13 @@ object AppViewModelProvider {
         // Initializer for HomeViewModel
         initializer {
             HomeViewModel(inventoryApplication().container.itemsRepository)
+        }
+
+        initializer {
+            ItemEditViewModel(
+                this.createSavedStateHandle(),
+                inventoryApplication().container.itemsRepository
+            )
         }
     }
 }
